@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Detail Saver</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-slate-100 text-black p-10 relative">
+    <div class="">
+        <div class="flex items-center justify-between border-r px-2">
+            <h1 class="text-3xl hover:text-violet-600 duration-500 cursor-default font-semibold">All Users</h1>
+            <a class="text-violet-600" href="/">Go Home</a>
+        </div>
+        <div class="users p-8 flex gap-4 flex-wrap items-center justify-center">
+            <!-- <% console.log(users) %> -->
+            <% if( users.length> 0 ){ %>
+                <% users.forEach((e)=> { %>
+                    <div
+                        class="relative user w-60 min-h-84 border px-2 py-3 rounded-2xl bg-[#111113] text-white flex flex-col items-center justify-center">
+                        <div class="absolute top-2 right-2 text-sm cursor-default">
+                            ⭐
+                        </div>
+                        <div class="img border rounded-full overflow-hidden w-40 h-40 border bg-violet-600">
+                            <img class="h-full w-full object-cover" src="<%= e.imageUrl %>">
+                        </div>
+                        <h3 class="text-xl font-semibold mt-4">
+                            <%= e.name %>
+                        </h3>
+                        <p class="text-sm text-[#aaaaaa]">
+                            <%= e.email %>
+                        </p>
+                        <div class="flex items-center justify-center mt-4 px-10 gap-2">
+                            <a class=" duration-300 cursor-pointer py-2 px-5 text-center text-white  border border-violet-600 rounded-lg active:text-violet-500 hover:bg-violet-600 focus:outline-none focus:ring"
+                                href="">Edit</a>
+                            <a class="duration-300 cursor-pointer py-2 px-5 text-center text-white bg-violet-600 border border-violet-600 rounded-lg active:text-violet-500 hover:bg-transparent hover:text-violet-600 focus:outline-none focus:ring"
+                                href="/delete/<%= e._id %>">Delete</a>
+                        </div>
+                    </div>
+                    <% }) %>
+                        <% } else { %>
+                            <h1 class="mt-10 cursor-default">There are no users.</h1>
+                            <% } %>
+        </div>
+    </div>
+
+
+
+    <script>
+
+    </script>
+</body>
+
+</html>
