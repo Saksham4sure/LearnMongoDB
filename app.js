@@ -35,6 +35,22 @@ app.get('/delete/:userId', async (req,res) => {
     res.redirect("/users");
 })
 
-app.listen(3001, ()=> {
+app.get('/edit/:userID', async (req,res) => {
+    let user = await userModel.findOne({_id: req.params.userID});
+    res.render("edit", {user})
+})
+
+app.post('/update/:userID', async (req,res) => {
+    let {name, email, imageUrl} = req.body;
+    let updatedUser = await userModel.findOneAndUpdate({_id: req.params.userID}, {
+        name: name,
+        email: email,
+        imageUrl: imageUrl
+    });
+
+    res.redirect("/users");
+})
+
+app.listen(3000, ()=> {
     console.log("Hello from port 3000")
 })

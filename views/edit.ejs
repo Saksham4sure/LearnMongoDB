@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Detail Saver</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-slate-100 text-black p-10">
+    <div class="">
+        <div class="flex items-center justify-between border-r px-2">
+            <h1 class="text-3xl hover:text-violet-600 duration-500 cursor-default font-semibold">Edit Users</h1>
+            <a class="text-violet-600" href="/users">All user</a>
+        </div>
+        <form class="mt-8 flex flex-col md:flex-row gap-4 justify-center items-center" action="/update/<%= user._id %>" method="post">
+            <input class="border-b-2 outline-none px-5 py-2 mt-2 focus:border-violet-600 duration-500"
+                placeholder="Name" type="text" value="<%= user.name %>" name="name" id="name">
+            <input class="border-b-2 outline-none px-5 py-2 mt-2 focus:border-violet-600 duration-500"
+                placeholder="Email" type="text" value="<%= user.email %>" name="email" id="email">
+            <input class="border-b-2 outline-none px-5 py-2 mt-2 focus:border-violet-600 duration-500"
+                placeholder="Image-url" type="text" value="<%= user.imageUrl %>" name="imageUrl" id="imageUrl">
+            <input
+                class="duration-500 cursor-pointer px-6 py-2 min-w-[120px] text-center text-white bg-violet-600 border border-violet-600 rounded active:text-violet-500 hover:bg-transparent hover:text-violet-600 focus:outline-none focus:ring"
+                type="submit" value="Update user">
+        </form>
+    </div>
+</body>
+
+</html>
